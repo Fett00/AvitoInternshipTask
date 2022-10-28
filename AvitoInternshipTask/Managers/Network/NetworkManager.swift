@@ -1,12 +1,10 @@
 import Foundation
 
-import Foundation
-
 class NetworkManager {
 
-    let api: URL
-    let session: URLSession
-    let cachePolicy: URLRequest.CachePolicy
+    private let api: URL
+    private let session: URLSession
+    private let cachePolicy: URLRequest.CachePolicy
 
     var task: URLSessionDataTask?
 
@@ -30,55 +28,31 @@ class NetworkManager {
 
         let url = api.appendingPathComponent(endpoint)
         let request = URLRequest(url: url, cachePolicy: cachePolicy)
-        task = session.dataTask(with: request) { data, responce, error in
-
-            if
-                error != nil,
-                let error = error as? URLError
-            {
-                completion(.failure(error))
-                return
-            }
-
-            guard let httpResponse = responce as? HTTPURLResponse,
-                  (200...299) ~= httpResponse.statusCode
-            else {
-                completion(.failure(URLError(.badServerResponse)))
-                return
-            }
-
-            guard let data = data else {
-                completion(.failure(URLError(.zeroByteResource)))
-                return
-            }
-            completion(.success(data))
-        }
+        task = NetworkDataTaskFactory.makeDefaultDataTask(
+            session,
+            request,
+            completion: completion
+        )
 
         task?.resume()
     }
 
     public func fetchToEndpoint(
         endpoint: String
-    ) -> Data {
+    ) -> Result<Data, URLError> {
 
-        var data = Data()
+        var result: Result<Data, URLError> = .failure(URLError(.unknown))
         let group = DispatchGroup()
 
         group.enter()
         _fetchToEndpoint(
             endpoint: endpoint
-        ) { result in
-
-            switch result {
-            case .success(let success):
-                data = success
-            case .failure(let failure):
-                print("[ERROR]", failure.localizedDescription)
-            }
+        ) { res in
+            result = res
             group.leave()
         }
         group.wait()
-        return data
+        return result
     }
 }
 

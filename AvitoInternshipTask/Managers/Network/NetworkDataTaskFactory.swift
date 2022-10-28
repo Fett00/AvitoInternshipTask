@@ -10,8 +10,9 @@ class NetworkDataTaskFactory {
 
         session.dataTask(with: request) { data, responce, error in
 
-            if error != nil,
-               let error = error as? URLError
+            if
+                error != nil,
+                let error = error as? URLError
             {
                 completion(.failure(error))
                 return
