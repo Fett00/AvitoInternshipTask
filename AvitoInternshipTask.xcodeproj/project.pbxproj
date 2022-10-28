@@ -9,23 +9,27 @@
 /* Begin PBXBuildFile section */
 		37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7283290C042F0052D165 /* AppDelegate.swift */; };
 		37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7285290C042F0052D165 /* SceneDelegate.swift */; };
-		37EF7288290C042F0052D165 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7287290C042F0052D165 /* ViewController.swift */; };
-		37EF728B290C042F0052D165 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF7289290C042F0052D165 /* Main.storyboard */; };
 		37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */; };
 		37EF7290290C04310052D165 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37EF728F290C04310052D165 /* Assets.xcassets */; };
 		37EF7293290C04310052D165 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF7291290C04310052D165 /* LaunchScreen.storyboard */; };
+		37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A1290C049D0052D165 /* ApplicationManager.swift */; };
+		37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A7290C04AE0052D165 /* LandingViewController.swift */; };
+		37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */; };
+		37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A9290C04AE0052D165 /* LandingPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		37EF7280290C042F0052D165 /* AvitoInternshipTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvitoInternshipTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF7283290C042F0052D165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EF7285290C042F0052D165 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		37EF7287290C042F0052D165 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		37EF728A290C042F0052D165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37EF728D290C042F0052D165 /* AvitoInternshipTask.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AvitoInternshipTask.xcdatamodel; sourceTree = "<group>"; };
 		37EF728F290C04310052D165 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37EF7292290C04310052D165 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37EF7294290C04310052D165 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37EF72A1290C049D0052D165 /* ApplicationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationManager.swift; sourceTree = "<group>"; };
+		37EF72A7290C04AE0052D165 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
+		37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewConfigurator.swift; sourceTree = "<group>"; };
+		37EF72A9290C04AE0052D165 /* LandingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,90 @@
 		37EF7282290C042F0052D165 /* AvitoInternshipTask */ = {
 			isa = PBXGroup;
 			children = (
+				37EF729A290C049D0052D165 /* Managers */,
+				37EF72A5290C04AE0052D165 /* Screens */,
+				37EF72AD290C06F20052D165 /* Otehr */,
+			);
+			path = AvitoInternshipTask;
+			sourceTree = "<group>";
+		};
+		37EF729A290C049D0052D165 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				37EF729B290C049D0052D165 /* DataManager */,
+				37EF729C290C049D0052D165 /* Network */,
+				37EF729D290C049D0052D165 /* CoreData */,
+				37EF72A0290C049D0052D165 /* Models */,
+				37EF72A1290C049D0052D165 /* ApplicationManager.swift */,
+				37EF72A2290C049D0052D165 /* Reachability */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		37EF729B290C049D0052D165 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		37EF729C290C049D0052D165 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		37EF729D290C049D0052D165 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		37EF72A0290C049D0052D165 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		37EF72A2290C049D0052D165 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Reachability;
+			sourceTree = "<group>";
+		};
+		37EF72A5290C04AE0052D165 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				37EF72A6290C04AE0052D165 /* Landing */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		37EF72A6290C04AE0052D165 /* Landing */ = {
+			isa = PBXGroup;
+			children = (
+				37EF72A7290C04AE0052D165 /* LandingViewController.swift */,
+				37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */,
+				37EF72A9290C04AE0052D165 /* LandingPresenter.swift */,
+			);
+			path = Landing;
+			sourceTree = "<group>";
+		};
+		37EF72AD290C06F20052D165 /* Otehr */ = {
+			isa = PBXGroup;
+			children = (
 				37EF7283290C042F0052D165 /* AppDelegate.swift */,
 				37EF7285290C042F0052D165 /* SceneDelegate.swift */,
-				37EF7287290C042F0052D165 /* ViewController.swift */,
-				37EF7289290C042F0052D165 /* Main.storyboard */,
 				37EF728F290C04310052D165 /* Assets.xcassets */,
 				37EF7291290C04310052D165 /* LaunchScreen.storyboard */,
 				37EF7294290C04310052D165 /* Info.plist */,
-				37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */,
 			);
-			path = AvitoInternshipTask;
+			path = Otehr;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,7 +208,6 @@
 			files = (
 				37EF7293290C04310052D165 /* LaunchScreen.storyboard in Resources */,
 				37EF7290290C04310052D165 /* Assets.xcassets in Resources */,
-				37EF728B290C042F0052D165 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +219,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */,
-				37EF7288290C042F0052D165 /* ViewController.swift in Sources */,
 				37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */,
+				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
+				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
+				37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */,
+				37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */,
 				37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -151,14 +231,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		37EF7289290C042F0052D165 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				37EF728A290C042F0052D165 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		37EF7291290C04310052D165 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -220,7 +292,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +346,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -295,7 +367,7 @@
 				INFOPLIST_FILE = AvitoInternshipTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -305,6 +377,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = vito.AvitoInternshipTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -322,7 +397,7 @@
 				INFOPLIST_FILE = AvitoInternshipTask/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -332,6 +407,9 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = vito.AvitoInternshipTask;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
