@@ -16,6 +16,7 @@
 		37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A7290C04AE0052D165 /* LandingViewController.swift */; };
 		37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */; };
 		37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A9290C04AE0052D165 /* LandingPresenter.swift */; };
+		37EF72B1290C096E0052D165 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72B0290C096E0052D165 /* CompanyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		37EF72A7290C04AE0052D165 /* LandingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingViewController.swift; sourceTree = "<group>"; };
 		37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewConfigurator.swift; sourceTree = "<group>"; };
 		37EF72A9290C04AE0052D165 /* LandingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPresenter.swift; sourceTree = "<group>"; };
+		37EF72B0290C096E0052D165 /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		37EF72A0290C049D0052D165 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				37EF72B0290C096E0052D165 /* CompanyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -130,8 +133,8 @@
 			isa = PBXGroup;
 			children = (
 				37EF72A7290C04AE0052D165 /* LandingViewController.swift */,
-				37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */,
 				37EF72A9290C04AE0052D165 /* LandingPresenter.swift */,
+				37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */,
 			);
 			path = Landing;
 			sourceTree = "<group>";
@@ -223,6 +226,7 @@
 				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
 				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
 				37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */,
+				37EF72B1290C096E0052D165 /* CompanyModel.swift in Sources */,
 				37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */,
 				37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */,
 			);
