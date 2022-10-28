@@ -17,6 +17,9 @@
 		37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */; };
 		37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72A9290C04AE0052D165 /* LandingPresenter.swift */; };
 		37EF72B1290C096E0052D165 /* CompanyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72B0290C096E0052D165 /* CompanyModel.swift */; };
+		37EF72B3290C22030052D165 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72B2290C22030052D165 /* DataManager.swift */; };
+		37EF72B5290C22240052D165 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72B4290C22240052D165 /* NetworkManager.swift */; };
+		37EF72B7290C22360052D165 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72B6290C22360052D165 /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewConfigurator.swift; sourceTree = "<group>"; };
 		37EF72A9290C04AE0052D165 /* LandingPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LandingPresenter.swift; sourceTree = "<group>"; };
 		37EF72B0290C096E0052D165 /* CompanyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompanyModel.swift; sourceTree = "<group>"; };
+		37EF72B2290C22030052D165 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
+		37EF72B4290C22240052D165 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		37EF72B6290C22360052D165 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 		37EF729B290C049D0052D165 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
+				37EF72B2290C22030052D165 /* DataManager.swift */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -94,6 +101,7 @@
 		37EF729C290C049D0052D165 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				37EF72B4290C22240052D165 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -101,6 +109,7 @@
 		37EF729D290C049D0052D165 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				37EF72B6290C22360052D165 /* CoreDataManager.swift */,
 				37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */,
 			);
 			path = CoreData;
@@ -223,12 +232,15 @@
 			files = (
 				37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */,
 				37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */,
+				37EF72B5290C22240052D165 /* NetworkManager.swift in Sources */,
 				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
 				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
 				37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */,
 				37EF72B1290C096E0052D165 /* CompanyModel.swift in Sources */,
 				37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */,
+				37EF72B3290C22030052D165 /* DataManager.swift in Sources */,
 				37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */,
+				37EF72B7290C22360052D165 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
