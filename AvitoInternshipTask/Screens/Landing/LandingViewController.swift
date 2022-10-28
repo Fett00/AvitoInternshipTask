@@ -2,7 +2,7 @@ import UIKit
 
 protocol LandingViewControllerProtocol: AnyObject {
 
-    func reloadData()
+    func reloadData(_ status: Status)
 }
 
 final class LandingViewController: UIViewController {
@@ -72,7 +72,8 @@ final class LandingViewController: UIViewController {
 
 // MARK: - LandingViewControllerProtocol
 extension LandingViewController: LandingViewControllerProtocol {
-    func reloadData() {
+    func reloadData(_ status: Status) {
+        print("i will reload data cause: \(status)")
         collectionView.reloadData()
     }
 }

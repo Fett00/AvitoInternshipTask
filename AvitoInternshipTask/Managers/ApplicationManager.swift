@@ -6,11 +6,13 @@ class ApplicationManager {
 
     let networkManager: NetworkManager
     let coreDataManager: CoreDataManager
+    let parseManager: ParseManager
 
     private init() {
 
-        networkManager = NetworkManager(api: "https://run.mocky.io")!
+        networkManager = NetworkManager(api: "http://run.mocky.io")!
         coreDataManager = CoreDataManager()
+        parseManager = ParseManager()
     }
 
     func createEntryPoint() -> UIViewController {

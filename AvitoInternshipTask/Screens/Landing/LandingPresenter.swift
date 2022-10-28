@@ -1,13 +1,19 @@
 import Foundation
 
+enum Status {
+
+    case showData
+    case showPlaceholder
+}
+
 protocol LandingPresenterProtocol {
     func fetchData()
-    var data: [CompanyModel] { get }
+    var data: CompanyModel? { get }
 }
 
 class LandingPresenter: LandingPresenterProtocol {
 
-    private(set) var data: [CompanyModel] = []
+    private(set) var data: CompanyModel?
 
     private let dataManager: DataManagerProtocol
     private let queue: DispatchQueue = DispatchQueue(
@@ -22,7 +28,8 @@ class LandingPresenter: LandingPresenterProtocol {
 
         dataManager = DataManager(
             network: applicationManager.networkManager,
-            coreData: applicationManager.coreDataManager
+            coreData: applicationManager.coreDataManager,
+            parseManager: applicationManager.parseManager
         )
     }
 
@@ -30,9 +37,19 @@ class LandingPresenter: LandingPresenterProtocol {
 
         queue.async { [weak self] in
             guard let this = self else { return }
-            this.data = this.dataManager.fetchData()
-            DispatchQueue.main.async {
-                this.delegate?.reloadData()
+            let result = this.dataManager.fetchData()
+
+            switch result {
+
+            case .failure(_):
+                DispatchQueue.main.async {
+                    this.delegate?.reloadData(.showPlaceholder)
+                }
+            case .success(let models):
+                this.data = models
+                DispatchQueue.main.async {
+                    this.delegate?.reloadData(.showData)
+                }
             }
         }
     }

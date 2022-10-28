@@ -8,7 +8,7 @@ struct CompanyModel: Codable {
 struct CompanyChildModel: Codable {
 
     let name: String
-    let employees: EmployeeModel
+    let employees: [EmployeeModel]
 }
 
 struct EmployeeModel: Codable {
