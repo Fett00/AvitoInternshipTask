@@ -14,11 +14,8 @@ class NetworkManager {
         api: String,
         cachePolicy: URLRequest.CachePolicy = .reloadIgnoringCacheData
     ) {
-        guard let apiStr = URL(string: api)?.host,
-              let api = URL(string: apiStr)
-        else {
-            return nil
-        }
+
+        guard let api = URL(string: api) else { return nil }
         self.api = api
         self.cachePolicy = cachePolicy
 
@@ -31,15 +28,32 @@ class NetworkManager {
         completion: @escaping (Result<Data, URLError>) -> Void
     ) {
 
-        assert(Thread.isMainThread)
-
-        let url = api.appendingPathExtension(endpoint)
+        let url = api.appendingPathComponent(endpoint)
         let request = URLRequest(url: url, cachePolicy: cachePolicy)
-        task = NetworkDataTaskFactory.makeDefaultDataTask(
-            session,
-            request,
-            completion: completion
-        )
+        task = session.dataTask(with: request) { data, responce, error in
+
+            if
+                error != nil,
+                let error = error as? URLError
+            {
+                completion(.failure(error))
+                return
+            }
+
+            guard let httpResponse = responce as? HTTPURLResponse,
+                  (200...299) ~= httpResponse.statusCode
+            else {
+                completion(.failure(URLError(.badServerResponse)))
+                return
+            }
+
+            guard let data = data else {
+                completion(.failure(URLError(.zeroByteResource)))
+                return
+            }
+            completion(.success(data))
+        }
+
         task?.resume()
     }
 
@@ -47,16 +61,14 @@ class NetworkManager {
         endpoint: String
     ) -> Data {
 
-        assert(Thread.isMainThread)
-
         var data = Data()
         let group = DispatchGroup()
 
+        group.enter()
         _fetchToEndpoint(
             endpoint: endpoint
         ) { result in
 
-            group.enter()
             switch result {
             case .success(let success):
                 data = success

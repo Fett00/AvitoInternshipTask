@@ -1,6 +1,6 @@
 import UIKit
 
-protocol LandingViewControllerProtocol {
+protocol LandingViewControllerProtocol: AnyObject {
 
     func reloadData()
 }
@@ -10,12 +10,17 @@ final class LandingViewController: UIViewController {
     private var collectionView: UICollectionView
     private let collectionViewLayout = UICollectionViewFlowLayout()
 
-    init() {
+    let presenter: LandingPresenterProtocol
+
+    init(
+        presenter: LandingPresenterProtocol
+    ) {
 
         self.collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: collectionViewLayout
         )
+        self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -36,6 +41,11 @@ final class LandingViewController: UIViewController {
             superview,
             collectionViewLayout
         )
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        presenter.fetchData()
     }
 
     private func setupUI() {
@@ -65,4 +75,25 @@ extension LandingViewController: LandingViewControllerProtocol {
     func reloadData() {
         collectionView.reloadData()
     }
+}
+
+// MARK: - UICollectionViewDataSource
+extension LandingViewController: UICollectionViewDataSource {
+
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        0
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        UICollectionViewCell()
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension LandingViewController: UICollectionViewDelegate {
+
 }
