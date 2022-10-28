@@ -23,6 +23,7 @@
 		37EF72B9290C23D60052D165 /* NetworkDataTaskFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72B8290C23D60052D165 /* NetworkDataTaskFactory.swift */; };
 		37EF72C1290C337E0052D165 /* AvitoInternshipTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72C0290C337E0052D165 /* AvitoInternshipTaskTests.swift */; };
 		37EF72C8290C33AD0052D165 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72C7290C33AD0052D165 /* NetworkManagerTests.swift */; };
+		37EF72CB290C4FBE0052D165 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72CA290C4FBE0052D165 /* ParseManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		37EF72BE290C337E0052D165 /* AvitoInternshipTaskTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AvitoInternshipTaskTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF72C0290C337E0052D165 /* AvitoInternshipTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvitoInternshipTaskTests.swift; sourceTree = "<group>"; };
 		37EF72C7290C33AD0052D165 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		37EF72CA290C4FBE0052D165 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				37EF72A1290C049D0052D165 /* ApplicationManager.swift */,
 				37EF729B290C049D0052D165 /* DataManager */,
 				37EF729C290C049D0052D165 /* Network */,
+				37EF72C9290C4FAA0052D165 /* Parse */,
 				37EF729D290C049D0052D165 /* CoreData */,
 				37EF72A0290C049D0052D165 /* Models */,
 				37EF72A2290C049D0052D165 /* Reachability */,
@@ -194,6 +197,14 @@
 				37EF72C0290C337E0052D165 /* AvitoInternshipTaskTests.swift */,
 			);
 			path = AvitoInternshipTaskTests;
+			sourceTree = "<group>";
+		};
+		37EF72C9290C4FAA0052D165 /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				37EF72CA290C4FBE0052D165 /* ParseManager.swift */,
+			);
+			path = Parse;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +319,7 @@
 				37EF72B9290C23D60052D165 /* NetworkDataTaskFactory.swift in Sources */,
 				37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */,
 				37EF72B7290C22360052D165 /* CoreDataManager.swift in Sources */,
+				37EF72CB290C4FBE0052D165 /* ParseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
