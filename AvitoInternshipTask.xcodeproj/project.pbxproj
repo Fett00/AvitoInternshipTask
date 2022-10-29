@@ -25,6 +25,8 @@
 		37EF72C8290C33AD0052D165 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72C7290C33AD0052D165 /* NetworkManagerTests.swift */; };
 		37EF72CB290C4FBE0052D165 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72CA290C4FBE0052D165 /* ParseManager.swift */; };
 		37EF72CD290D42560052D165 /* LandingEmploeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72CC290D42550052D165 /* LandingEmploeeCell.swift */; };
+		37EF72D0290D455A0052D165 /* UICollectionViewCell+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72CF290D455A0052D165 /* UICollectionViewCell+Ext.swift */; };
+		37EF72D2290D461E0052D165 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72D1290D461E0052D165 /* UICollectionView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		37EF72C7290C33AD0052D165 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		37EF72CA290C4FBE0052D165 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		37EF72CC290D42550052D165 /* LandingEmploeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingEmploeeCell.swift; sourceTree = "<group>"; };
+		37EF72CF290D455A0052D165 /* UICollectionViewCell+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Ext.swift"; sourceTree = "<group>"; };
+		37EF72D1290D461E0052D165 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +106,8 @@
 			children = (
 				37EF729A290C049D0052D165 /* Managers */,
 				37EF72A5290C04AE0052D165 /* Screens */,
-				37EF72AD290C06F20052D165 /* Otehr */,
+				37EF72CE290D45440052D165 /* Extensions */,
+				37EF72AD290C06F20052D165 /* Other */,
 				37EF7294290C04310052D165 /* Info.plist */,
 			);
 			path = AvitoInternshipTask;
@@ -182,7 +187,7 @@
 			path = Landing;
 			sourceTree = "<group>";
 		};
-		37EF72AD290C06F20052D165 /* Otehr */ = {
+		37EF72AD290C06F20052D165 /* Other */ = {
 			isa = PBXGroup;
 			children = (
 				37EF7283290C042F0052D165 /* AppDelegate.swift */,
@@ -190,7 +195,7 @@
 				37EF728F290C04310052D165 /* Assets.xcassets */,
 				37EF7291290C04310052D165 /* LaunchScreen.storyboard */,
 			);
-			path = Otehr;
+			path = Other;
 			sourceTree = "<group>";
 		};
 		37EF72BF290C337E0052D165 /* AvitoInternshipTaskTests */ = {
@@ -208,6 +213,15 @@
 				37EF72CA290C4FBE0052D165 /* ParseManager.swift */,
 			);
 			path = Parse;
+			sourceTree = "<group>";
+		};
+		37EF72CE290D45440052D165 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				37EF72CF290D455A0052D165 /* UICollectionViewCell+Ext.swift */,
+				37EF72D1290D461E0052D165 /* UICollectionView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,9 +326,11 @@
 			files = (
 				37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */,
 				37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */,
+				37EF72D0290D455A0052D165 /* UICollectionViewCell+Ext.swift in Sources */,
 				37EF72B5290C22240052D165 /* NetworkManager.swift in Sources */,
 				37EF72CD290D42560052D165 /* LandingEmploeeCell.swift in Sources */,
 				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
+				37EF72D2290D461E0052D165 /* UICollectionView+Ext.swift in Sources */,
 				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
 				37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */,
 				37EF72B1290C096E0052D165 /* CompanyModel.swift in Sources */,
