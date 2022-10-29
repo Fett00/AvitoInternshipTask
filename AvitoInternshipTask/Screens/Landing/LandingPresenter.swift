@@ -52,6 +52,7 @@ class LandingPresenter: LandingPresenterProtocol {
 
             case .failure(_):
                 DispatchQueue.main.async {
+                    this.data = []
                     this.delegate?.reloadData(.showPlaceholder)
                 }
             case .success(let model):

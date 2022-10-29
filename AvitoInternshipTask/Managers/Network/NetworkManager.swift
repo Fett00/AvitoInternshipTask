@@ -10,7 +10,7 @@ class NetworkManager {
 
     init?(
         api: String,
-        cachePolicy: URLRequest.CachePolicy = .reloadIgnoringCacheData
+        cachePolicy: URLRequest.CachePolicy = .reloadIgnoringLocalAndRemoteCacheData
     ) {
 
         guard let api = URL(string: api) else { return nil }

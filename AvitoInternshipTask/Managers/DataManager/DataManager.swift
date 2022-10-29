@@ -73,7 +73,7 @@ extension DataManager: DataManagerProtocol {
               let timestamp = cache.timestamp
         else { return .failure(.cantFetchData)}
 
-        if Date().timeIntervalSince(timestamp) > 3600.0 {
+        if Date().timeIntervalSince(timestamp) > 20.0 {
             clearCache()
             return .failure(.cantFetchData)
         }
