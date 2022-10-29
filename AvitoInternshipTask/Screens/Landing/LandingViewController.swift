@@ -65,6 +65,7 @@ final class LandingViewController: UIViewController {
         view.addSubview(placeholder)
         placeholder.addTargetForButton(target: self, action: #selector(tapRefreshButton), for: .touchUpInside)
         placeholder.translatesAutoresizingMaskIntoConstraints = false
+        placeholder.alpha = 0.0
         NSLayoutConstraint.activate([
             placeholder.topAnchor.constraint(equalTo: view.topAnchor),
             placeholder.bottomAnchor.constraint(equalTo: view.bottomAnchor),

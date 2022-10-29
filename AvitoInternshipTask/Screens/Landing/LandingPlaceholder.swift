@@ -44,13 +44,14 @@ class LandingPlaceholder: UIView {
         placeholderButton.layer.borderWidth = 0.5
         placeholderButton.setTitle("ОБНОВИТЬ", for: .normal)
         placeholderButton.setTitleColor(.label, for: .normal)
+        placeholderButton.backgroundColor = .secondarySystemFill
         placeholderButton.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
 
         NSLayoutConstraint.activate([
             placeholderImage.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 0),
             placeholderImage.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -70),
             placeholderImage.widthAnchor.constraint(equalToConstant: 100),
-            placeholderImage.heightAnchor.constraint(equalToConstant: 100)
+            placeholderImage.heightAnchor.constraint(equalToConstant: 90)
         ])
 
         NSLayoutConstraint.activate([
