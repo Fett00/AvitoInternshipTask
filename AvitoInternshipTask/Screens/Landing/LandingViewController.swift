@@ -10,6 +10,7 @@ final class LandingViewController: UIViewController {
     private let collectionView: UICollectionView
     private let collectionViewLayout = UICollectionViewFlowLayout()
     private let refresh = UIRefreshControl()
+    private let placeholder = LandingPlaceholder(frame: .zero)
 
     let presenter: LandingPresenterProtocol
 
@@ -58,7 +59,18 @@ final class LandingViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupCollectionView()
+
         refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
+
+        view.addSubview(placeholder)
+        placeholder.addTargetForButton(target: self, action: #selector(tapRefreshButton), for: .touchUpInside)
+        placeholder.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            placeholder.topAnchor.constraint(equalTo: view.topAnchor),
+            placeholder.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            placeholder.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            placeholder.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
     }
 
     private func setupCollectionView() {
@@ -74,20 +86,30 @@ final class LandingViewController: UIViewController {
         collectionView.refreshControl = refresh
 
         NSLayoutConstraint.activate([
-
             collectionView.topAnchor.constraint(equalTo: safe.topAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: safe.trailingAnchor)
         ])
     }
+
+    @objc private func tapRefreshButton() {
+        presenter.fetchData()
+    }
 }
 
 // MARK: - LandingViewControllerProtocol
 extension LandingViewController: LandingViewControllerProtocol {
     func reloadData(_ status: Status) {
-        print("i will reload data cause: \(status)")
-        collectionView.reloadData()
+
+        switch status {
+        case .showData:
+            placeholder.hide()
+            collectionView.reloadData()
+        case .showPlaceholder:
+            placeholder.showWithCause(.cantLoad)
+            collectionView.reloadData()
+        }
     }
 }
 

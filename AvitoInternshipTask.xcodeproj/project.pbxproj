@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		372AB133290DA2220025945B /* CacheModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */; };
 		372AB134290DA2220025945B /* CacheModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */; };
+		372AB139290DB8B10025945B /* LandingPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB138290DB8B10025945B /* LandingPlaceholder.swift */; };
 		37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7283290C042F0052D165 /* AppDelegate.swift */; };
 		37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7285290C042F0052D165 /* SceneDelegate.swift */; };
 		37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */; };
@@ -44,6 +45,7 @@
 /* Begin PBXFileReference section */
 		372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CacheModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CacheModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		372AB138290DB8B10025945B /* LandingPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPlaceholder.swift; sourceTree = "<group>"; };
 		37EF7280290C042F0052D165 /* AvitoInternshipTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvitoInternshipTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF7283290C042F0052D165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EF7285290C042F0052D165 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 			children = (
 				37EF72A7290C04AE0052D165 /* LandingViewController.swift */,
 				37EF72A9290C04AE0052D165 /* LandingPresenter.swift */,
+				372AB138290DB8B10025945B /* LandingPlaceholder.swift */,
 				37EF72CC290D42550052D165 /* LandingEmploeeCell.swift */,
 				37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */,
 			);
@@ -354,6 +357,7 @@
 				37EF72B3290C22030052D165 /* DataManager.swift in Sources */,
 				37EF72B9290C23D60052D165 /* NetworkDataTaskFactory.swift in Sources */,
 				37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */,
+				372AB139290DB8B10025945B /* LandingPlaceholder.swift in Sources */,
 				37EF72B7290C22360052D165 /* CoreDataManager.swift in Sources */,
 				37EF72CB290C4FBE0052D165 /* ParseManager.swift in Sources */,
 			);
