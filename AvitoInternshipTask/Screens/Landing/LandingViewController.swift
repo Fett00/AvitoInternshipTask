@@ -39,6 +39,7 @@ final class LandingViewController: UIViewController {
         guard let superview = collectionView.superview else { return }
         CollectionViewConfigurator.configureFlowLayout(
             superview,
+            collectionView,
             collectionViewLayout
         )
     }
@@ -49,11 +50,15 @@ final class LandingViewController: UIViewController {
     }
 
     private func setupUI() {
-        view.backgroundColor = .brown//.systemBackground
+        view.backgroundColor = .systemBackground
         setupCollectionView()
     }
 
     private func setupCollectionView() {
+
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        CollectionViewConfigurator.configureCollection(collectionView)
 
         let safe = view.safeAreaLayoutGuide
         view.addSubview(collectionView)
@@ -63,7 +68,7 @@ final class LandingViewController: UIViewController {
         NSLayoutConstraint.activate([
 
             collectionView.topAnchor.constraint(equalTo: safe.topAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: safe.bottomAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: safe.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: safe.trailingAnchor)
         ])
@@ -82,15 +87,20 @@ extension LandingViewController: LandingViewControllerProtocol {
 extension LandingViewController: UICollectionViewDataSource {
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        0
+        1
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        presenter.data.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        UICollectionViewCell()
+
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LandingEmploeeCell.reuseID, for: indexPath) as? LandingEmploeeCell else {
+            return UICollectionViewCell()
+        }
+        cell.update(presenter.data[indexPath.item])
+        return cell
     }
 }
 

@@ -35,7 +35,10 @@ class LandingPresenter: LandingPresenterProtocol {
 
     private func prepareForPresentation(_ model: CompanyModel) -> [PresentationModel] {
         model.company.employees.map {
-            PresentationModel(name: $0.name, phoneNumber: $0.phoneNumber, skills: $0.skills)
+            let name = $0.name
+            let phoneNumber = "📱 \n" + $0.phoneNumber
+            let skills = "💪 \n" + $0.skills.joined(separator: ", ")
+            return PresentationModel(name: name, phoneNumber: phoneNumber, skills: skills)
         }
     }
 
@@ -64,5 +67,5 @@ class LandingPresenter: LandingPresenterProtocol {
 struct PresentationModel {
     let name: String
     let phoneNumber: String
-    let skills: [String]
+    let skills: String
 }

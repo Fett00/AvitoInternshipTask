@@ -24,14 +24,24 @@ class LandingEmploeeCell: UICollectionViewCell {
 
     private func setupUI() {
 
+        backgroundColor = .secondarySystemFill
+        layer.cornerCurve = .continuous
+        layer.cornerRadius = 20
+
         [nameLabel, phoneLabel, skillsLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
             addSubview($0)
         }
 
         nameLabel.numberOfLines = 1
-        phoneLabel.numberOfLines = 1
-        skillsLabel.numberOfLines = 2
+        phoneLabel.numberOfLines = 2
+        skillsLabel.numberOfLines = 3
+
+        nameLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        phoneLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+        skillsLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+
+        nameLabel.font = UIFont.preferredFont(forTextStyle: .title2)
 
         NSLayoutConstraint.activate([
             nameLabel.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -47,9 +57,16 @@ class LandingEmploeeCell: UICollectionViewCell {
 
         NSLayoutConstraint.activate([
             skillsLabel.topAnchor.constraint(equalTo: phoneLabel.bottomAnchor, constant: 10),
-            skillsLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            skillsLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -15),
             skillsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             skillsLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15)
         ])
+    }
+
+    func update(_ model: PresentationModel) {
+
+        nameLabel.text = model.name
+        phoneLabel.text = model.phoneNumber
+        skillsLabel.text = model.skills
     }
 }

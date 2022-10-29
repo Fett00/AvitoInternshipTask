@@ -3,6 +3,7 @@ import Foundation
 enum DataManagerError: Error {
 
     case cantFetchData
+    case dataIsEmpty
 }
 
 protocol DataManagerProtocol {
@@ -64,8 +65,8 @@ extension DataManager: DataManagerProtocol {
         }
     }
 
-    private func fetchFromCoreData() -> Result<CompanyModel, Error> {
-        return .failure(Error.self as! Error)
+    private func fetchFromCoreData() -> Result<CompanyModel, DataManagerError> {
+        return .failure(.cantFetchData)
     }
 
     private func parse<ModelType: Decodable>(type: ModelType.Type, data: Data) -> ModelType? {
