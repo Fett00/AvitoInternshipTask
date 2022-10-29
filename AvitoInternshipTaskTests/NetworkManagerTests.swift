@@ -1,10 +1,3 @@
-//
-//  NetworkManagerTests.swift
-//  AvitoInternshipTaskTests
-//
-//  Created by Садык Мусаев on 28.10.2022.
-//
-
 import XCTest
 @testable import AvitoInternshipTask
 

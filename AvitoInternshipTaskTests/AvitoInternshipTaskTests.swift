@@ -1,10 +1,3 @@
-//
-//  AvitoInternshipTaskTests.swift
-//  AvitoInternshipTaskTests
-//
-//  Created by Садык Мусаев on 28.10.2022.
-//
-
 import XCTest
 
 final class AvitoInternshipTaskTests: XCTestCase {

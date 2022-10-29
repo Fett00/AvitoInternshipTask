@@ -1,10 +1,3 @@
-//
-//  SceneDelegate.swift
-//  AvitoInternshipTask
-//
-//  Created by Садык Мусаев on 28.10.2022.
-//
-
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {

@@ -24,6 +24,7 @@
 		37EF72C1290C337E0052D165 /* AvitoInternshipTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72C0290C337E0052D165 /* AvitoInternshipTaskTests.swift */; };
 		37EF72C8290C33AD0052D165 /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72C7290C33AD0052D165 /* NetworkManagerTests.swift */; };
 		37EF72CB290C4FBE0052D165 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72CA290C4FBE0052D165 /* ParseManager.swift */; };
+		37EF72CD290D42560052D165 /* LandingEmploeeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF72CC290D42550052D165 /* LandingEmploeeCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		37EF72C0290C337E0052D165 /* AvitoInternshipTaskTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvitoInternshipTaskTests.swift; sourceTree = "<group>"; };
 		37EF72C7290C33AD0052D165 /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		37EF72CA290C4FBE0052D165 /* ParseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
+		37EF72CC290D42550052D165 /* LandingEmploeeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingEmploeeCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				37EF72A7290C04AE0052D165 /* LandingViewController.swift */,
 				37EF72A9290C04AE0052D165 /* LandingPresenter.swift */,
+				37EF72CC290D42550052D165 /* LandingEmploeeCell.swift */,
 				37EF72A8290C04AE0052D165 /* CollectionViewConfigurator.swift */,
 			);
 			path = Landing;
@@ -310,6 +313,7 @@
 				37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */,
 				37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */,
 				37EF72B5290C22240052D165 /* NetworkManager.swift in Sources */,
+				37EF72CD290D42560052D165 /* LandingEmploeeCell.swift in Sources */,
 				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
 				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
 				37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */,
