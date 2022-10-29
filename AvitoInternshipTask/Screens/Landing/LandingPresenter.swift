@@ -8,12 +8,12 @@ enum Status {
 
 protocol LandingPresenterProtocol {
     func fetchData()
-    var data: CompanyModel? { get }
+    var data: [PresentationModel] { get }
 }
 
 class LandingPresenter: LandingPresenterProtocol {
 
-    private(set) var data: CompanyModel?
+    private(set) var data: [PresentationModel] = []
 
     private let dataManager: DataManagerProtocol
     private let queue: DispatchQueue = DispatchQueue(
@@ -33,6 +33,12 @@ class LandingPresenter: LandingPresenterProtocol {
         )
     }
 
+    private func prepareForPresentation(_ model: CompanyModel) -> [PresentationModel] {
+        model.company.employees.map {
+            PresentationModel(name: $0.name, phoneNumber: $0.phoneNumber, skills: $0.skills)
+        }
+    }
+
     func fetchData() {
 
         queue.async { [weak self] in
@@ -45,12 +51,18 @@ class LandingPresenter: LandingPresenterProtocol {
                 DispatchQueue.main.async {
                     this.delegate?.reloadData(.showPlaceholder)
                 }
-            case .success(let models):
-                this.data = models
+            case .success(let model):
+                this.data = this.prepareForPresentation(model)
                 DispatchQueue.main.async {
                     this.delegate?.reloadData(.showData)
                 }
             }
         }
     }
+}
+
+struct PresentationModel {
+    let name: String
+    let phoneNumber: String
+    let skills: [String]
 }

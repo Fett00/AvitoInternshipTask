@@ -39,7 +39,14 @@ extension DataManager: DataManagerProtocol {
         case .success(let data):
             return .success(data)
         case .failure(_):
-            return .failure(.cantFetchData)
+            let coreDataFetch = fetchFromCoreData()
+
+            switch coreDataFetch {
+            case .success(let model):
+                return .success(model)
+            case .failure(_):
+                return .failure(.cantFetchData)
+            }
         }
     }
 
@@ -57,9 +64,9 @@ extension DataManager: DataManagerProtocol {
         }
     }
 
-//    private func fetchFromCoreData() -> Result<CompanyModel, Error> {
-//        return .failure(Error.self as! Error)
-//    }
+    private func fetchFromCoreData() -> Result<CompanyModel, Error> {
+        return .failure(Error.self as! Error)
+    }
 
     private func parse<ModelType: Decodable>(type: ModelType.Type, data: Data) -> ModelType? {
         parseManager.parse(type: type, data: data)
