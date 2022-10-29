@@ -39,7 +39,7 @@ class LandingPresenter: LandingPresenterProtocol {
             let phoneNumber = "📱 \n" + $0.phoneNumber
             let skills = "💪 \n" + $0.skills.joined(separator: ", ")
             return PresentationModel(name: name, phoneNumber: phoneNumber, skills: skills)
-        }
+        }.sorted { $0.name < $1.name }
     }
 
     func fetchData() {

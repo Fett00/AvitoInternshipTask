@@ -33,7 +33,6 @@ extension DataManager: DataManagerProtocol {
 
     func fetchData() -> Result<CompanyModel, DataManagerError> {
 
-
         let networkFetch = fetchFromNetwork()
 
         switch networkFetch {
@@ -59,6 +58,9 @@ extension DataManager: DataManagerProtocol {
             guard let models = parse(type: CompanyModel.self, data: data) else {
                 return .failure(URLError(.cannotParseResponse))
             }
+            DispatchQueue.global().async { [weak self] in
+                self?.cacheData(data)
+            }
             return .success(models)
         case .failure(let error):
             return .failure(error)
@@ -66,10 +68,43 @@ extension DataManager: DataManagerProtocol {
     }
 
     private func fetchFromCoreData() -> Result<CompanyModel, DataManagerError> {
-        return .failure(.cantFetchData)
+        let cache = coreData.read(CacheModel.self)
+        guard let cache = cache,
+              let timestamp = cache.timestamp
+        else { return .failure(.cantFetchData)}
+
+        if Date().timeIntervalSince(timestamp) > 3600.0 {
+            clearCache()
+            return .failure(.cantFetchData)
+        }
+
+        guard let data = cache.data,
+              let model = parse(type: CompanyModel.self, data: data)
+        else { return .failure(.cantFetchData) }
+
+        return .success(model)
     }
 
     private func parse<ModelType: Decodable>(type: ModelType.Type, data: Data) -> ModelType? {
         parseManager.parse(type: type, data: data)
+    }
+}
+
+// MARK: - Data Saving and Deleting
+extension DataManager {
+
+    private func cacheData(_ data: Data) {
+
+        let timestamp = Date()
+
+        coreData.create { context in
+            let cache = CacheModel(context: context)
+            cache.timestamp = timestamp
+            cache.data = data
+        } completion: { _ in }
+    }
+
+    private func clearCache() {
+        coreData.removeAll(CacheModel.self) { _ in }
     }
 }

@@ -7,8 +7,9 @@ protocol LandingViewControllerProtocol: AnyObject {
 
 final class LandingViewController: UIViewController {
 
-    private var collectionView: UICollectionView
+    private let collectionView: UICollectionView
     private let collectionViewLayout = UICollectionViewFlowLayout()
+    private let refresh = UIRefreshControl()
 
     let presenter: LandingPresenterProtocol
 
@@ -16,7 +17,7 @@ final class LandingViewController: UIViewController {
         presenter: LandingPresenterProtocol
     ) {
 
-        self.collectionView = UICollectionView(
+        collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: collectionViewLayout
         )
@@ -49,9 +50,15 @@ final class LandingViewController: UIViewController {
         presenter.fetchData()
     }
 
+    @objc private func refreshAction() {
+        presenter.fetchData()
+        refresh.endRefreshing()
+    }
+
     private func setupUI() {
         view.backgroundColor = .systemBackground
         setupCollectionView()
+        refresh.addTarget(self, action: #selector(refreshAction), for: .valueChanged)
     }
 
     private func setupCollectionView() {
@@ -64,6 +71,7 @@ final class LandingViewController: UIViewController {
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .clear
+        collectionView.refreshControl = refresh
 
         NSLayoutConstraint.activate([
 

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372AB133290DA2220025945B /* CacheModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */; };
+		372AB134290DA2220025945B /* CacheModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */; };
 		37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7283290C042F0052D165 /* AppDelegate.swift */; };
 		37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7285290C042F0052D165 /* SceneDelegate.swift */; };
 		37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CacheModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CacheModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		37EF7280290C042F0052D165 /* AvitoInternshipTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvitoInternshipTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF7283290C042F0052D165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EF7285290C042F0052D165 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,6 +87,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		372AB135290DA22C0025945B /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */,
+				372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
 		37EF7277290C042F0052D165 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +162,7 @@
 			children = (
 				37EF72B6290C22360052D165 /* CoreDataManager.swift */,
 				37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */,
+				372AB135290DA22C0025945B /* CoreDataModels */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -328,10 +342,12 @@
 				37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */,
 				37EF72D0290D455A0052D165 /* UICollectionViewCell+Ext.swift in Sources */,
 				37EF72B5290C22240052D165 /* NetworkManager.swift in Sources */,
+				372AB134290DA2220025945B /* CacheModel+CoreDataProperties.swift in Sources */,
 				37EF72CD290D42560052D165 /* LandingEmploeeCell.swift in Sources */,
 				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
 				37EF72D2290D461E0052D165 /* UICollectionView+Ext.swift in Sources */,
 				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
+				372AB133290DA2220025945B /* CacheModel+CoreDataClass.swift in Sources */,
 				37EF72AB290C04AE0052D165 /* CollectionViewConfigurator.swift in Sources */,
 				37EF72B1290C096E0052D165 /* CompanyModel.swift in Sources */,
 				37EF72AC290C04AE0052D165 /* LandingPresenter.swift in Sources */,

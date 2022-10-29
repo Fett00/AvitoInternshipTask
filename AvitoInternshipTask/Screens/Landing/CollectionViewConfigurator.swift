@@ -44,7 +44,6 @@ final class CollectionViewConfigurator {
         let numberOfItemInRow = rowsNumber()
         let spacing = 10.0
         let inset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        #warning("Учесть number of item in row")
         let itemSize = CGSize(
             width: (containerWidth - inset.left - inset.right - spacing * (numberOfItemInRow - 1) - 10) / numberOfItemInRow,
             height: 200
