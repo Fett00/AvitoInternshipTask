@@ -2,6 +2,7 @@ import UIKit
 
 final class CollectionViewConfigurator {
 
+    //В зависимости от типа и ориентации устройства, меняется кол-во элементов в строке
     private static func rowsNumber() -> CGFloat {
 
         let device = UIDevice.current.userInterfaceIdiom

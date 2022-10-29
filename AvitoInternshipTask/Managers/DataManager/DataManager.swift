@@ -1,26 +1,25 @@
 import Foundation
 
 enum DataManagerError: Error {
-
     case cantFetchData
     case dataIsEmpty
 }
 
-protocol DataManagerProtocol {
-
+protocol DataManagerProtocol: AnyObject {
     func fetchData() -> Result<CompanyModel, DataManagerError>
 }
 
+// Класс для работы с данными
 class DataManager {
 
-    private let network: NetworkManager
-    private let coreData: CoreDataManager
-    private let parseManager: ParseManager
+    private let network: NetworkManagerProtocol
+    private let coreData: CoreDataManagerProtocol
+    private let parseManager: ParseManagerProtocol
 
     init(
-        network: NetworkManager,
-        coreData: CoreDataManager,
-        parseManager: ParseManager
+        network: NetworkManagerProtocol,
+        coreData: CoreDataManagerProtocol,
+        parseManager: ParseManagerProtocol
     ) {
         self.network = network
         self.coreData = coreData
@@ -33,12 +32,14 @@ extension DataManager: DataManagerProtocol {
 
     func fetchData() -> Result<CompanyModel, DataManagerError> {
 
+        //Запрос в сеть
         let networkFetch = fetchFromNetwork()
 
         switch networkFetch {
         case .success(let data):
             return .success(data)
         case .failure(_):
+            //Если запрос в сеть зафейлен, ищем в кэше
             let coreDataFetch = fetchFromCoreData()
 
             switch coreDataFetch {
@@ -50,8 +51,9 @@ extension DataManager: DataManagerProtocol {
         }
     }
 
+    // Запрос данных из сети
     private func fetchFromNetwork() -> Result<CompanyModel, URLError> {
-        let result = network.fetchToEndpoint(endpoint: "/v3/1d1cb4ec-73db-4762-8c4b-0b8aa3cecd4c")
+        let result = network.fetchToEndpoint(endpoint: .emploees)
 
         switch result {
         case .success(let data):
@@ -59,6 +61,7 @@ extension DataManager: DataManagerProtocol {
                 return .failure(URLError(.cannotParseResponse))
             }
             DispatchQueue.global().async { [weak self] in
+                //кэшируем данные из сети
                 self?.cacheData(data)
             }
             return .success(models)
@@ -67,12 +70,15 @@ extension DataManager: DataManagerProtocol {
         }
     }
 
+    //Запрос данных из кэша
     private func fetchFromCoreData() -> Result<CompanyModel, DataManagerError> {
         let cache = coreData.read(CacheModel.self)
         guard let cache = cache,
               let timestamp = cache.timestamp
         else { return .failure(.cantFetchData)}
 
+        #warning("Поменять время на 3600 (1 час) после дебага")
+        //Проверям на протухшесть данных
         if Date().timeIntervalSince(timestamp) > 20.0 {
             clearCache()
             return .failure(.cantFetchData)
@@ -85,6 +91,7 @@ extension DataManager: DataManagerProtocol {
         return .success(model)
     }
 
+    //Парсинг полученных данных
     private func parse<ModelType: Decodable>(type: ModelType.Type, data: Data) -> ModelType? {
         parseManager.parse(type: type, data: data)
     }
@@ -93,6 +100,7 @@ extension DataManager: DataManagerProtocol {
 // MARK: - Data Saving and Deleting
 extension DataManager {
 
+    //Кэширование данных
     private func cacheData(_ data: Data) {
 
         let timestamp = Date()
@@ -104,6 +112,7 @@ extension DataManager {
         } completion: { _ in }
     }
 
+    //Очистка кэша(когда он протухнет)
     private func clearCache() {
         coreData.removeAll(CacheModel.self) { _ in }
     }

@@ -1,6 +1,10 @@
 import Foundation
 
-class NetworkManager {
+protocol NetworkManagerProtocol: AnyObject {
+    func fetchToEndpoint( endpoint: NetwokrEndpoints) -> Result<Data, URLError>
+}
+
+class NetworkManager: NetworkManagerProtocol {
 
     private let api: URL
     private let session: URLSession
@@ -38,7 +42,7 @@ class NetworkManager {
     }
 
     public func fetchToEndpoint(
-        endpoint: String
+        endpoint: NetwokrEndpoints
     ) -> Result<Data, URLError> {
 
         var result: Result<Data, URLError> = .failure(URLError(.unknown))
@@ -46,7 +50,7 @@ class NetworkManager {
 
         group.enter()
         _fetchToEndpoint(
-            endpoint: endpoint
+            endpoint: endpoint.rawValue
         ) { res in
             result = res
             group.leave()

@@ -10,6 +10,7 @@
 		372AB133290DA2220025945B /* CacheModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */; };
 		372AB134290DA2220025945B /* CacheModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */; };
 		372AB139290DB8B10025945B /* LandingPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB138290DB8B10025945B /* LandingPlaceholder.swift */; };
+		372AB13B290DC87C0025945B /* NetworkEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372AB13A290DC87B0025945B /* NetworkEndpoints.swift */; };
 		37EF7284290C042F0052D165 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7283290C042F0052D165 /* AppDelegate.swift */; };
 		37EF7286290C042F0052D165 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF7285290C042F0052D165 /* SceneDelegate.swift */; };
 		37EF728E290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 37EF728C290C042F0052D165 /* AvitoInternshipTask.xcdatamodeld */; };
@@ -46,6 +47,7 @@
 		372AB131290DA2220025945B /* CacheModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CacheModel+CoreDataClass.swift"; sourceTree = "<group>"; };
 		372AB132290DA2220025945B /* CacheModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CacheModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		372AB138290DB8B10025945B /* LandingPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPlaceholder.swift; sourceTree = "<group>"; };
+		372AB13A290DC87B0025945B /* NetworkEndpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoints.swift; sourceTree = "<group>"; };
 		37EF7280290C042F0052D165 /* AvitoInternshipTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AvitoInternshipTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF7283290C042F0052D165 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EF7285290C042F0052D165 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,7 +139,6 @@
 				37EF72C9290C4FAA0052D165 /* Parse */,
 				37EF729D290C049D0052D165 /* CoreData */,
 				37EF72A0290C049D0052D165 /* Models */,
-				37EF72A2290C049D0052D165 /* Reachability */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -155,6 +156,7 @@
 			children = (
 				37EF72B4290C22240052D165 /* NetworkManager.swift */,
 				37EF72B8290C23D60052D165 /* NetworkDataTaskFactory.swift */,
+				372AB13A290DC87B0025945B /* NetworkEndpoints.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -175,13 +177,6 @@
 				37EF72B0290C096E0052D165 /* CompanyModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		37EF72A2290C049D0052D165 /* Reachability */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Reachability;
 			sourceTree = "<group>";
 		};
 		37EF72A5290C04AE0052D165 /* Screens */ = {
@@ -348,6 +343,7 @@
 				372AB134290DA2220025945B /* CacheModel+CoreDataProperties.swift in Sources */,
 				37EF72CD290D42560052D165 /* LandingEmploeeCell.swift in Sources */,
 				37EF72A4290C049D0052D165 /* ApplicationManager.swift in Sources */,
+				372AB13B290DC87C0025945B /* NetworkEndpoints.swift in Sources */,
 				37EF72D2290D461E0052D165 /* UICollectionView+Ext.swift in Sources */,
 				37EF72AA290C04AE0052D165 /* LandingViewController.swift in Sources */,
 				372AB133290DA2220025945B /* CacheModel+CoreDataClass.swift in Sources */,

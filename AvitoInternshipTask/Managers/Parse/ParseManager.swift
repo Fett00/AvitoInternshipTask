@@ -1,7 +1,6 @@
 import Foundation
 
 protocol ParseManagerProtocol: AnyObject {
-
     func parse<ModelType: Decodable>(type: ModelType.Type, data: Data) -> ModelType?
 }
 

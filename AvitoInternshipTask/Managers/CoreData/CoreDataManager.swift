@@ -1,7 +1,16 @@
 import Foundation
 import CoreData
 
-class CoreDataManager {
+protocol CoreDataManagerProtocol {
+    func create(createObject: (NSManagedObjectContext)->(), completion: @escaping (Bool) -> Void)
+    func read<Entity: NSManagedObject>(_ model: Entity.Type) -> Entity?
+    func removeAll<Entity: NSManagedObject>(
+        _ model: Entity.Type,
+        completion: @escaping (Bool) -> Void
+    )
+}
+
+class CoreDataManager: CoreDataManagerProtocol {
 
     private lazy var persistentContainer: NSPersistentContainer = {
 

@@ -13,6 +13,4 @@ extension CacheModel {
 
 }
 
-extension CacheModel : Identifiable {
-
-}
+extension CacheModel : Identifiable {}

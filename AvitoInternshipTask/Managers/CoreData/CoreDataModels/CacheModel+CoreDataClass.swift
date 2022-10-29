@@ -10,6 +10,4 @@ import Foundation
 import CoreData
 
 @objc(CacheModel)
-public class CacheModel: NSManagedObject {
-
-}
+public class CacheModel: NSManagedObject {}

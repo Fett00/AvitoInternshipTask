@@ -1,5 +1,6 @@
 import UIKit
 
+// Ячейка колекции
 class LandingEmploeeCell: UICollectionViewCell {
 
     private let nameLabel = UILabel()

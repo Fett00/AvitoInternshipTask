@@ -1,5 +1,6 @@
 import UIKit
 
+// Плейсхолдер отображающийся, например, при отсутствии сети
 class LandingPlaceholder: UIView {
 
     enum PlaceholderCause: String {
