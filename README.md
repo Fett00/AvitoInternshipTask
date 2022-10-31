@@ -20,15 +20,24 @@
 
 ## Превью:
 
+
+Ландшафтная ориентация(iPad/iPhone):
 <p float="center">
   <img src="/Previews/iPad_dark_land.png" width="250" />
-  <img src="/Previews/iPhone_light_land.png" width="250" />
-  <img src="/Previews/iPhone_dark_land.png" width="250" />
+  <img src="/Previews/iPhone_light_land.png" width="300" />
+  <img src="/Previews/iPhone_dark_land.png" width="300" />
 </p>
-#
+
+
+Портретная ориентация(iPad/iPhone):
 <p float="center">
-  <img src="/Previews/iPad_dark_port.png" width="250" /> 
+  <img src="/Previews/iPad_dark_port.png" width="350" /> 
+  <img src="/Previews/iPhone_light_port.png" width="300" />
+</p>
+
+
+Обработка сценария отсутствия сети:
+<p float="center">
   <img src="/Previews/iPhone_dark_no_connection.png" width="250" />
-  <img src="/Previews/iPhone_light_port.png" width="250" />
 </p>
 
