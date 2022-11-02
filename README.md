@@ -1,11 +1,11 @@
-# AvitoInternshipTask
+# Avito Internship Task
 
 
 <a href="https://swift.org">
-    <img src="https://img.shields.io/badge/swift-5.6-brightgreen.svg" alt="Swift 5.2">
+    <img src="https://img.shields.io/badge/swift-5.7-brightgreen.svg" alt="Swift 5.7">
 </a>
 <a href="https://swift.org">
-    <img src="https://img.shields.io/badge/ios-13.0-blue.svg" alt="Swift 5.2">
+    <img src="https://img.shields.io/badge/ios-13.0-blue.svg" alt="Swift 5.7">
 </a>
 
 #
@@ -24,9 +24,8 @@
 
 Ландшафтная ориентация(iPad/iPhone):
 <p float="center">
-  <img src="/Previews/iPad_dark_land.png" width="250" />
-  <img src="/Previews/iPhone_light_land.png" width="300" />
-  <img src="/Previews/iPhone_dark_land.png" width="300" />
+  <img src="/Previews/iPad_dark_land.png" width="350" />
+  <img src="/Previews/iPhone_light_land.png" width="400" />
 </p>
 
 
