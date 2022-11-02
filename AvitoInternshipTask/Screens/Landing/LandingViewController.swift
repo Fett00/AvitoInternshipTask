@@ -35,12 +35,11 @@ final class LandingViewController: UIViewController {
         setupUI()
     }
 
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
 
         guard let superview = collectionView.superview else { return }
         CollectionViewConfigurator.configureFlowLayout(
-            superview,
             collectionView,
             collectionViewLayout
         )
