@@ -1,4 +1,5 @@
-# DeliveryApp
+# AvitoInternshipTask
+
 
 <a href="https://swift.org">
     <img src="https://img.shields.io/badge/swift-5.6-brightgreen.svg" alt="Swift 5.2">
