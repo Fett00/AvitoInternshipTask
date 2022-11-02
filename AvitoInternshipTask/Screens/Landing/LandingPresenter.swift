@@ -15,7 +15,7 @@ class LandingPresenter: LandingPresenterProtocol {
 
     private(set) var data: [PresentationModel] = []
 
-    private let dataManager: DataManagerProtocol
+    private let dataManager: any DataManagerProtocol<CompanyModel>
     private let queue: DispatchQueue = DispatchQueue(
         label: "landing.presenter.background",
         qos: .userInteractive,
@@ -26,7 +26,7 @@ class LandingPresenter: LandingPresenterProtocol {
 
     init(applicationManager: ApplicationManager) {
 
-        dataManager = DataManager(
+        dataManager = DataManager<CompanyModel>(
             network: applicationManager.networkManager,
             coreData: applicationManager.coreDataManager,
             parseManager: applicationManager.parseManager
@@ -46,7 +46,7 @@ class LandingPresenter: LandingPresenterProtocol {
 
         queue.async { [weak self] in
             guard let this = self else { return }
-            let result = this.dataManager.fetchData()
+            let result = this.dataManager.fetchData() //this.dataManager.fetchData()
 
             switch result {
 

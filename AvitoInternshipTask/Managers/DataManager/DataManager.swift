@@ -1,16 +1,17 @@
 import Foundation
 
 enum DataManagerError: Error {
-    case cantFetchData
+    case canNotFetchData
     case dataIsEmpty
 }
 
-protocol DataManagerProtocol: AnyObject {
-    func fetchData() -> Result<CompanyModel, DataManagerError>
+protocol DataManagerProtocol<ModelType>: AnyObject {
+    associatedtype ModelType: Codable
+    func fetchData() -> Result<ModelType, DataManagerError>
 }
 
 // Класс для работы с данными
-class DataManager {
+class DataManager<ModelType: Codable> {
 
     private let network: NetworkManagerProtocol
     private let coreData: CoreDataManagerProtocol
@@ -30,7 +31,7 @@ class DataManager {
 // MARK: - Data Fetching
 extension DataManager: DataManagerProtocol {
 
-    func fetchData() -> Result<CompanyModel, DataManagerError> {
+    func fetchData() -> Result<ModelType, DataManagerError> {
 
         //Запрос в сеть
         let networkFetch = fetchFromNetwork()
@@ -46,18 +47,18 @@ extension DataManager: DataManagerProtocol {
             case .success(let model):
                 return .success(model)
             case .failure(_):
-                return .failure(.cantFetchData)
+                return .failure(.canNotFetchData)
             }
         }
     }
 
     // Запрос данных из сети
-    private func fetchFromNetwork() -> Result<CompanyModel, URLError> {
+    private func fetchFromNetwork() -> Result<ModelType, URLError> {
         let result = network.fetchToEndpoint(endpoint: .emploees)
 
         switch result {
         case .success(let data):
-            guard let models = parse(type: CompanyModel.self, data: data) else {
+            guard let models = parse(type: ModelType.self, data: data) else {
                 return .failure(URLError(.cannotParseResponse))
             }
             DispatchQueue.global().async { [weak self] in
@@ -71,28 +72,28 @@ extension DataManager: DataManagerProtocol {
     }
 
     //Запрос данных из кэша
-    private func fetchFromCoreData() -> Result<CompanyModel, DataManagerError> {
+    private func fetchFromCoreData() -> Result<ModelType, DataManagerError> {
         let cache = coreData.read(CacheModel.self)
         guard let cache = cache,
               let timestamp = cache.timestamp
-        else { return .failure(.cantFetchData)}
+        else { return .failure(.canNotFetchData)}
 
         #warning("Поменять время на 3600 (1 час) после дебага")
         //Проверям на протухшесть данных
         if Date().timeIntervalSince(timestamp) > 20.0 {
             clearCache()
-            return .failure(.cantFetchData)
+            return .failure(.canNotFetchData)
         }
 
         guard let data = cache.data,
-              let model = parse(type: CompanyModel.self, data: data)
-        else { return .failure(.cantFetchData) }
+              let model = parse(type: ModelType.self, data: data)
+        else { return .failure(.canNotFetchData) }
 
         return .success(model)
     }
 
     //Парсинг полученных данных
-    private func parse<ModelType: Decodable>(type: ModelType.Type, data: Data) -> ModelType? {
+    private func parse(type: ModelType.Type, data: Data) -> ModelType? {
         parseManager.parse(type: type, data: data)
     }
 }
